@@ -5,6 +5,10 @@
 @use"base" as *;
 @use"utilities" as *;
 
+input.ng-invalid.ng-toutched{
+    border: 1px solid red !important;
+    }
+
 
 
 @tailwind base;

@@ -1,24 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./core/components/navbar/navbar.component";
 import { FooterComponent } from "./core/components/footer/footer.component";
 import { FlowbiteService } from './core/services/flowbite/flowbite.service';
 import { MainLayoutComponent } from "./core/layouts/main-layout/main-layout.component";
+import { NgxSpinnerModule , NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, FooterComponent,NgxSpinnerModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent  {
-  // title = 'fresh-cart';
+  ngx=inject(NgxSpinnerService);
+
+  title = 'fresh-cart';
+
+
   // constructor(private flowbiteService: FlowbiteService) {}
 
   // ngOnInit(): void {
-  //   this.flowbiteService.loadFlowbite(flowbite => {
-  //     // Your custom code here
-  //     // console.log('Flowbite loaded', flowbite);
-  //   });
+  //  this.ngx.show();
+
+  //  setTimeout(() => {
+  //   this.ngx.hide();
+  //  }, 1000);
   // }
 }

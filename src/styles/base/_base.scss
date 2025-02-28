@@ -67,3 +67,7 @@ body{
     background-color: $light-color !important;
   }
  
+
+ input.ng-invalid.ng-toutched{
+  border: 1px solid red !important;
+  }

@@ -1,5 +1,6 @@
 
-export interface IProduct {
+
+export interface IProducts {
     results: number
     metadata: Metadata
     data: IProduct[]

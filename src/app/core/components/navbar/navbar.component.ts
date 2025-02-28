@@ -1,26 +1,40 @@
-import { Component, Input, input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject, Input, input } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FlowbiteService } from '../../services/flowbite/flowbite.service';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink,RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+ 
 
- @Input() isLogin:boolean=false;
+  _cartService: CartService = inject(CartService);
 
+  @Input() isLogin: boolean = false;
 
- constructor(private flowbiteService: FlowbiteService) {}
-
+  constructor(private flowbiteService: FlowbiteService) {}
+  router = inject(Router);
 
   ngOnInit(): void {
-    this.flowbiteService.loadFlowbite(flowbite => {
-      // Your custom code here
-      // console.log('Flowbite loaded', flowbite);
-    });
+    this.flowbiteService.loadFlowbite((flowbite) => {});
+    this.cartItems();
+  }
 
+  logOut(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
+
+  cartItems(): void {
+    this._cartService.getCart().subscribe({
+      next: (res) => {
+        this._cartService.numOfCartItems = res.numOfCartItems;
+
+      },
+    });
   }
 }

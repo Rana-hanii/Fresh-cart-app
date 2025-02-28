@@ -1,3 +1,9 @@
-justify-between{
-    justify-content: space-between!important;
+@use"variables" as *; 
+ 
+
+.cart-active{
+    color: $main-color;
+}
+.heart-active{
+    color: red;
 }
