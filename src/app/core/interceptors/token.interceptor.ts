@@ -6,12 +6,12 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const _PLATFORM_ID = inject(PLATFORM_ID);
 
   if (isPlatformBrowser(_PLATFORM_ID)) {
-    const newReq = req.clone({
+     req = req.clone({
       setHeaders: {
-        token: localStorage.getItem('token')|| '',
-      },
+        token: localStorage.getItem('token')||'',
+      }, 
     });
-    return next(newReq);
   }
+  
   return next(req);
 };

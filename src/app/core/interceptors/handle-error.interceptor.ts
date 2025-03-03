@@ -10,10 +10,9 @@ export const handleErrorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error) => {
       console.log('Error is here');
-      console.log(error);
+      console.log();
       if (error.status === 0) {
-        _toastrService.error('No network connection ');
-
+        _toastrService.error('Netowrk in not connection');
       }
       return throwError(() => error);
     })

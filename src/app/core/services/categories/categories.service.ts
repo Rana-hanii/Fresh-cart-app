@@ -10,9 +10,9 @@ import { WEBSITE_BASE_URL } from '../../constance/WEBSITE_BASE_URL';
 })
 export class CategoriesService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private _httpClient:HttpClient) { }
 
   getAllCategories():Observable<ICategories>{
-    return this.httpClient.get<ICategories>(`${WEBSITE_BASE_URL}/api/v1/categories`)
+    return this._httpClient.get<ICategories>(`${WEBSITE_BASE_URL}/api/v1/categories`)
   }
 }

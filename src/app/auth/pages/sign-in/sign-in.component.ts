@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
 })
@@ -37,9 +37,11 @@ export class SignInComponent {
   onSubmit(): void {
     this.handleSubmit();
     this.isLoading = false;
+
     if (this.signInForm.valid) {
-      this.isLoading = true;
       console.log(this.signInForm.value);
+      this.isLoading = true;
+
       this.authService.sendSignIn(this.signInForm.value).subscribe({
         next: (res: ISuccess) => {
           console.log(res);

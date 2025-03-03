@@ -2,6 +2,8 @@ import { Component, inject, Input, input } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FlowbiteService } from '../../services/flowbite/flowbite.service';
 import { CartService } from '../../services/cart/cart.service';
+import { OrderService } from '../../services/orders/order.service';
+import { WishListService } from '../../services/wishList/wish-list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,13 @@ import { CartService } from '../../services/cart/cart.service';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+
+  id = localStorage.getItem('userId')!;
  
 
   _cartService: CartService = inject(CartService);
+  _orderservice: OrderService= inject(OrderService);
+  _wishListService: WishListService= inject(WishListService);
 
   @Input() isLogin: boolean = false;
 
@@ -21,12 +27,15 @@ export class NavbarComponent {
 
   ngOnInit(): void {
     this.flowbiteService.loadFlowbite((flowbite) => {});
-    this.cartItems();
+    if (this.isLogin) {
+      this.cartItems();
+      this.orderNum();
+    }
   }
 
   logOut(): void {
     localStorage.removeItem('token');
-    this.router.navigate(['/']);
+    this.router.navigate(['/signin']);
   }
 
   cartItems(): void {
@@ -37,4 +46,27 @@ export class NavbarComponent {
       },
     });
   }
+
+  orderNum(): void {
+    this._orderservice.getAllOrders(this.id).subscribe({
+      next: (res) => {
+        this._orderservice.numOfOrders = res.length;
+        console.log(this._orderservice.numOfOrders)
+
+      },
+    });
+  }
+
+  wishListNum(){
+    this._wishListService.getWishList().subscribe({
+      next: (res) => {
+        this._wishListService.numOfWishItems = res.data.length;
+        console.log(this._wishListService.numOfWishItems)
+
+      },
+    });
+  }
+
+ 
+
 }

@@ -87,24 +87,19 @@
 
             <!-- & Btn Submit -->
             <div class="flex justify-between items-center sm:row-auto">
-                <button [disabled]="isLoading" type="button"
+                <button [disabled]="payForm.invalid" type="button" (click)="onSubmit('cash')"
                     class="disabled:!bg-green-400 disabled:!cursor-progress text-white bg-green-600 block mx-auto  hover:bg-green-900   font-medium rounded-lg text-sm w-60 my-4 px-5 py-2.5 text-center">
-                    @if(isLoading){
-                    <i class="fas fa-spin fa-spinner"></i>
-                    }@else {
+
+
                     Cash Payment
                     <i class="fa-solid fa-coins mx-2 text-lg"></i>
-                
-                    }
+
                 </button>
-                <button [disabled]="isLoading" type="button"
+                <button [disabled]="payForm.invalid " type="button" (click)="onSubmit('online')"
                     class="disabled:!bg-green-400   disabled:!cursor-progress text-white bg-green-600 block mx-auto  hover:bg-green-900   font-medium rounded-lg text-sm w-60 my-4 px-5 py-2.5 text-center">
-                    @if(isLoading){
-                    <i class="fas fa-spin fa-spinner"></i>
-                    }@else {
+
                     Online Payment
                     <i class="fa-solid fa-credit-card mx-2 text-lg"></i>
-                    }
                 </button>
             </div>
 

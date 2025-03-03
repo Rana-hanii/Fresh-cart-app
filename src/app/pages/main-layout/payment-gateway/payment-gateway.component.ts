@@ -5,6 +5,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { OrderService } from '../../../core/services/orders/order.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IOnlinePayment } from '../../../core/interfaces/payment/IOnlinePayment';
 
 @Component({
   selector: 'app-payment-gateway',
@@ -13,11 +16,18 @@ import {
   styleUrl: './payment-gateway.component.scss',
 })
 export class PaymentGatewayComponent {
-  isLoading: boolean = false;
-  _formGroup = inject(FormBuilder);
+  method: string = '';
   payForm!: FormGroup;
+  currentCartId!: string;
+
+  _formGroup = inject(FormBuilder);
+  _orderService = inject(OrderService);
+  _activatedRoute = inject(ActivatedRoute);
+  _router = inject(Router);
+
   ngOnInit() {
     this.checkoutForm();
+    this.getCurrentId();
   }
   // !validation
   checkoutForm(): void {
@@ -28,9 +38,55 @@ export class PaymentGatewayComponent {
     });
   }
   // !Payment
-  onlinePayment(): void {}
+  onlinePayment(): void {
+    this._orderService.onlinePayment(this.currentCartId,this.payForm.value).subscribe({
+        next: (res:IOnlinePayment) => {
+          console.log("Cart ID:", this.currentCartId);
+          console.log(res.session.url);
+          window.location.assign(res.session.url)
+        
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
   // !Cash
-  cashOnDelivery(): void {}
+  cashOnDelivery(): void {
+    this._orderService.cashOnDelivery(this.currentCartId,this.payForm.value).subscribe({
+      next: (res:IOnlinePayment) => {
+        this._router.navigate(['/allorders']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
   // !Submit
-  onSubmit(): void {}
+  onSubmit(method: string): void {
+    this.handleSubmit();
+
+    if (this.payForm.valid) {
+      console.log(this.payForm.value);
+      console.log(method);
+      if (method === 'online') {
+        this.onlinePayment();
+      } else {
+        this.cashOnDelivery();
+      }
+    }
+  }
+
+  // !handle functions
+  handleSubmit() {
+    this.payForm.markAllAsTouched();
+  }
+  getCurrentId() {
+    return this._activatedRoute.paramMap.subscribe({
+      next: (params) => {
+        this.currentCartId = params.get('id')!;
+        console.log(this.currentCartId);
+      },
+    });
+  }
 }

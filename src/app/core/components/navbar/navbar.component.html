@@ -23,16 +23,16 @@
             <ul
                 class="font-semibold flex flex-col  flex-grow-1 p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 ">
                 <li>
-                    <a routerLink="/home" routerLinkActive="bg-main text-white"
+                    <a routerLink="/home" routerLinkActive="active-link"
                         class=" block py-2 px-3  rounded-sm  text-gray-500 duration-300 ">Home</a>
                 </li>
-                <li><a routerLink="/products" routerLinkActive=" bg-main text-white"
+                <li><a routerLink="/products" routerLinkActive=" active-link"
                         class="block py-2 px-3  rounded-sm   text-gray-500 duration-300">Products</a>
                 </li>
-                <li> <a routerLink="/categories" routerLinkActive="bg-main text-white "
+                <li> <a routerLink="/categories" routerLinkActive="active-link "
                         class="block py-2 px-3  rounded-sm   text-gray-500 duration-300 ">Categories</a>
                 </li>
-                <li> <a routerLink="/brands" routerLinkActive=" bg-main text-white"
+                <li> <a routerLink="/brands" routerLinkActive=" active-link"
                         class="block py-2 px-3  rounded-sm    text-gray-500 duration-300 ">Brands</a>
                 </li>
             </ul>
@@ -76,20 +76,20 @@
                 class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  items-center">
                 @if (!isLogin) {
                 <li>
-                    <a routerLink="/signin" routerLinkActive="bg-main text-white"
+                    <a routerLink="/signin" routerLinkActive="active-link"
                         class=" block py-2 px-3  rounded-sm  text-gray-500 duration-300 ">Sign In</a>
                 </li>
-                <li> <a routerLink="/signup" routerLinkActive="bg-main text-white "
+                <li> <a routerLink="/signup" routerLinkActive="active-link "
                         class="block py-2 px-3  rounded-sm   text-gray-500 duration-300 ">Sign Up</a>
                 </li>
                 }
                 @if(isLogin){
-                <li><a routerLink="wishlist" routerLinkActive="heart-active"
+                <li><a routerLink="/wishList" routerLinkActive="heart-active"
                         class="heart relative block py-2 px-3 rounded-sm  text-gray-500 duration-300">
                         <i class="fa-solid fa-heart text-2xl"></i>
                         <div
                             class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500  rounded-full -top-2 -end-2">
-                            20</div>
+                            {{_wishListService.numOfWishItems}}</div>
                     </a>
 
                 </li>
@@ -102,13 +102,13 @@
                             {{_cartService.numOfCartItems}}</div>
                     </a>
                 </li>
-                <li><a routerLink="order" routerLinkActive="cart-active"
+                <li><a [routerLink]="['/allorders',id]" routerLinkActive="cart-active"
                         class="cart relative block py-2 px-3 rounded-sm  text-gray-500 duration-300">
 
                         <i class="fa-solid fa-bell text-2xl"></i>
                         <div
                             class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500  rounded-full -top-2 -end-2">
-                            0 </div>
+                            {{_orderservice.numOfOrders}} </div>
                     </a>
                 </li>
 

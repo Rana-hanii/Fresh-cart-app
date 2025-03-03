@@ -17,8 +17,6 @@ export class CartComponent implements OnInit {
   _cartService: CartService = inject(CartService);
   _toastrService = inject(ToastrService);
   
-  
-
   allCartProducts!: ICartProducts;
 
   ngOnInit(): void {

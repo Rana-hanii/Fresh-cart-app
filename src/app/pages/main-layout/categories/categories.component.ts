@@ -9,7 +9,7 @@ import { ICategories } from '../../../core/interfaces/categories/ICategories';
   styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent implements OnInit{
-  categoriesService=inject(CategoriesService);
+  _categoriesService=inject(CategoriesService);
   categories!:ICategories
 
   ngOnInit():void{
@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit{
   }
 
   allCategories():void{
-    this.categoriesService.getAllCategories().subscribe({
+    this._categoriesService.getAllCategories().subscribe({
       next:(res)=>{
         console.log(res);
         this.categories=res;
