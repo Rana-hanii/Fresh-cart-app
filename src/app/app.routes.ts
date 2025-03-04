@@ -18,6 +18,7 @@ import { ProductsComponent } from './pages/main-layout/products/products.compone
 import { WishListComponent } from './pages/main-layout/wish-list/wish-list.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
  
   {
     path: '',
@@ -34,7 +35,8 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  
+  
   {
     path: '',
     component: MainLayoutComponent,
