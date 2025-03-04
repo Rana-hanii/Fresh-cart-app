@@ -18,13 +18,13 @@ import { ProductsComponent } from './pages/main-layout/products/products.compone
 import { WishListComponent } from './pages/main-layout/wish-list/wish-list.component';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+ 
   {
     path: '',
     component: AuthLayoutComponent,
     canActivate: [loggedGuard],
     children: [
-      { path: '', redirectTo: 'signin', pathMatch: 'full' },
+      // { path: '', redirectTo: 'signin', pathMatch: 'full' },
       { path: 'signin', component: SignInComponent, title: 'FreshCart-SignIn' },
       { path: 'signup', component: SignUpComponent, title: 'FreshCart-SignUp' },
       {
@@ -40,7 +40,7 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      // { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent, title: 'FreshCart-Home' },
       {
         path: 'categories',

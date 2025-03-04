@@ -5,9 +5,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { OrderService } from '../../../core/services/orders/order.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IOnlinePayment } from '../../../core/interfaces/payment/IOnlinePayment';
+import { OrderService } from '../../../core/services/orders/order.service';
 
 @Component({
   selector: 'app-payment-gateway',
@@ -19,6 +19,7 @@ export class PaymentGatewayComponent {
   method: string = '';
   payForm!: FormGroup;
   currentCartId!: string;
+  id = localStorage.getItem('userId')!;
 
   _formGroup = inject(FormBuilder);
   _orderService = inject(OrderService);
@@ -52,10 +53,10 @@ export class PaymentGatewayComponent {
       });
   }
   // !Cash
-  cashOnDelivery(): void {
+  cashOnDelivery(id:string): void {
     this._orderService.cashOnDelivery(this.currentCartId,this.payForm.value).subscribe({
       next: (res:IOnlinePayment) => {
-        this._router.navigate(['/allorders']);
+        this._router.navigate([`/allorders/${id}`]);
       },
       error: (err) => {
         console.log(err);
@@ -72,7 +73,7 @@ export class PaymentGatewayComponent {
       if (method === 'online') {
         this.onlinePayment();
       } else {
-        this.cashOnDelivery();
+        this.cashOnDelivery(this.id);
       }
     }
   }

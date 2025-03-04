@@ -16,8 +16,6 @@ export class NavbarComponent {
 
   _PLATFORM_ID = inject(PLATFORM_ID);
   
- 
-
   id:string = ''
 
   _cartService: CartService = inject(CartService);

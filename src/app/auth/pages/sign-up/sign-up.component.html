@@ -1,12 +1,12 @@
 <div class="container mx-auto">
-    <div class="signUp-Form my-8 ">
+    <div class="signUp-Form my-8 px-4 ">
         <form [formGroup]="signUpForm" class=" mx-auto rounded-lg shadow-lg p-10  max-w-xl ">
             <p class="title my-6">Register </p>
 
             <!-- & Name -->
             <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="floating_first_name" id="floating_first_name"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer rounded-md"
                     placeholder=" " formControlName="name" />
                 <label for="floating_first_name"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-green-600 peer-focus:dark:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
@@ -41,7 +41,7 @@
             <!-- & Email -->
             <div class="relative z-0 w-full mb-5 group">
                 <input  type="email" name="floating_email" id="floating_email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer  "
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer rounded-md  "
                     placeholder=" " required autocomplete="email" formControlName="email" />
                 <label for="floating_email"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-green-600 peer-focus:dark:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
@@ -75,7 +75,7 @@
             <!-- & Pass -->
             <div class="relative z-0 w-full mb-5 group">
                 <input type="password" name="floating_password" id="floating_password"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer rounded-md"
                     placeholder=" " required autocomplete="new-password" formControlName="password" />
                 <label for="floating_password"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-green-600 peer-focus:dark:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
@@ -105,7 +105,7 @@
             <!-- & rePass -->
             <div class="relative z-0 w-full mb-5 group">
                 <input type="password" name="repeat_password" id="floating_repeat_password"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer rounded-md"
                     placeholder=" " required autocomplete="new-password" formControlName="rePassword" />
                 <label for="floating_repeat_password"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-green-600 peer-focus:dark:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm
@@ -146,7 +146,7 @@
             <!-- & Phone -->
             <div class="relative z-0 w-full mb-5 group">
                 <input type="tel" name="floating_phone" id="floating_phone"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-green-600 peer rounded-md"
                     placeholder=" " required formControlName="phone" />
                 <label for="floating_phone"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-green-600 peer-focus:dark:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
@@ -176,7 +176,7 @@
 
             <!-- & Btn Submit -->
             <button [disabled]="isLoading" type="button" (click)="onSubmit()"
-                class="text-white bg-green-600 block mx-auto  hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-60 my-4 px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-6000 dark:focus:ring-green-600">
+                class="text-white bg-green-600 block mx-auto   hover:bg-green-900  focus:outline-none  font-semibold  rounded-lg text-sm w-60 my-8 px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-6000 dark:focus:ring-green-600">
                 @if(isLoading){
                 <i class="fas fa-spin fa-spinner"></i>
                 }@else {
@@ -188,7 +188,7 @@
 
 
             <!--& Erorr and Success msg  -->
-            @if(errorMessage.length>0){
+            <!-- @if(errorMessage.length>0){
             <div role="alert"
                 class="bg-red-100 my-3 dark:bg-red-700 border-l-4 border-red-500 dark:border-red-400 text-red-900 dark:text-red-100 p-2 rounded-lg flex items-center transition duration-300 ease-in-out hover:bg-red-200 dark:hover:bg-red-800 transform hover:scale-105">
                 <svg stroke="currentColor" viewBox="0 0 24 24" fill="none"
@@ -214,7 +214,7 @@
                 <p class="text-xs font-semibold">{{successMessage}}</p>
             </div>
 
-            }
+            } -->
 
         </form>
     </div>

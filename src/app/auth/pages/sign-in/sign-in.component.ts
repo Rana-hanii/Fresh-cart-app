@@ -27,10 +27,9 @@ export class SignInComponent {
 
   //!! Signin form , validation
   signInForm: FormGroup = new FormGroup({
-    email: new FormControl(null, [Validators.required /* Validators.email*/]),
+    email: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [
       Validators.required,
-      // Validators.pattern(/^[A-Z]\w{7,}$/),
     ]),
   });
 
