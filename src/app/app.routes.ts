@@ -18,14 +18,14 @@ import { ProductsComponent } from './pages/main-layout/products/products.compone
 import { WishListComponent } from './pages/main-layout/wish-list/wish-list.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
- 
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   {
     path: '',
     component: AuthLayoutComponent,
     canActivate: [loggedGuard],
     children: [
-      // { path: '', redirectTo: 'signin', pathMatch: 'full' },
+      { path: '', redirectTo: 'signin', pathMatch: 'full' },
       { path: 'signin', component: SignInComponent, title: 'FreshCart-SignIn' },
       { path: 'signup', component: SignUpComponent, title: 'FreshCart-SignUp' },
       {
@@ -35,14 +35,14 @@ export const routes: Routes = [
       },
     ],
   },
-  
-  
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '',
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
-      // { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent, title: 'FreshCart-Home' },
       {
         path: 'categories',
@@ -56,8 +56,16 @@ export const routes: Routes = [
         title: 'FreshCart-Products',
       },
       { path: 'cart', component: CartComponent, title: 'FreshCart-Cart' },
-      { path: 'wishList', component: WishListComponent, title: 'FreshCart-WishList' },
-      { path: 'allorders/:id', component: AllordersComponent, title: 'FreshCart-Orders' },
+      {
+        path: 'wishList',
+        component: WishListComponent,
+        title: 'FreshCart-WishList',
+      },
+      {
+        path: 'allorders/:id',
+        component: AllordersComponent,
+        title: 'FreshCart-Orders',
+      },
       {
         path: 'details/:id',
         component: DetailsComponent,
