@@ -1,7 +1,8 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, Input, PLATFORM_ID } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FlowbiteService } from '../../services/flowbite/flowbite.service';
 import { CartService } from '../../services/cart/cart.service';
+import { FlowbiteService } from '../../services/flowbite/flowbite.service';
 import { OrderService } from '../../services/orders/order.service';
 import { WishListService } from '../../services/wishList/wish-list.service';
 
@@ -13,8 +14,11 @@ import { WishListService } from '../../services/wishList/wish-list.service';
 })
 export class NavbarComponent {
 
-  id = localStorage.getItem('userId')!;
+  _PLATFORM_ID = inject(PLATFORM_ID);
+  
  
+
+  id:string = ''
 
   _cartService: CartService = inject(CartService);
   _orderservice: OrderService= inject(OrderService);
@@ -31,6 +35,11 @@ export class NavbarComponent {
       this.cartItems();
       this.orderNum();
     }
+
+    
+     if (isPlatformBrowser(this._PLATFORM_ID)){
+      this.id = localStorage.getItem('userId')!;
+     }
   }
 
   logOut(): void {

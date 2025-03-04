@@ -43,6 +43,7 @@ getProducts():void {
         console.log(res.data.wishlist);
         this.allWishListId = res.data.wishlist;
         this._wishListService.numOfWishItems = res.data.wishlist.length
+        this._wishListService.getWishList()
       },
       error: (err) => {
         console.log(err);

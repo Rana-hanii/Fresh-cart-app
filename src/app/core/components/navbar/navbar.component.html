@@ -21,7 +21,7 @@
             <!-- !main links -->
             @if (isLogin) {
             <ul
-                class="font-semibold flex flex-col  flex-grow-1 p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 ">
+                class="font-semibold flex flex-col  flex-grow-1 p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 text-center">
                 <li>
                     <a routerLink="/home" routerLinkActive="active-link"
                         class=" block py-2 px-3  rounded-sm  text-gray-500 duration-300 ">Home</a>
@@ -42,7 +42,7 @@
             <!-- !social links -->
 
             <ul
-                class="font-medium lg:px-20 flex md:justify-end flex-row p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 ">
+                class="font-medium lg:px-20 flex md:justify-end flex-row p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0 items-center justify-center">
                 <li>
                     <a href="https://www.google.com"
                         class=" block py-2 px-3  rounded-sm  text-gray-900 duration-300 "><i
@@ -73,7 +73,7 @@
 
             <!-- !auth links -->
             <ul
-                class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  items-center">
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg  md:flex-row  md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  items-center">
                 @if (!isLogin) {
                 <li>
                     <a routerLink="/signin" routerLinkActive="active-link"

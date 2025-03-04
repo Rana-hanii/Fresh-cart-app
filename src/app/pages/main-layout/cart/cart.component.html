@@ -48,11 +48,11 @@
 
                             <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                                 <a href="#"
-                                    class="text-base font-medium text-gray-900 hover:underline">{{item.product.title}}</a>
+                                    class="text-base font-bold text-gray-900 ">{{item.product.title}}</a>
 
                                 <div class="flex items-center gap-4">
-                                    <button type="button"
-                                        class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 hover:underline">
+                                    <button type="button"  (click)="addToWishList(item.product._id)"
+                                        class="inline-flex items-center text-sm font-bold  text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-3 rounded">
                                         <svg class="me-1.5 h-5 w-5" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                             viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
                                     </button>
 
                                     <button type="button" (click)="removeFromCart(item.product._id)"
-                                        class="inline-flex items-center text-sm font-medium text-red-600 hover:underline">
+                                        class="inline-flex items-center text-sm font-bold text-red-600 hover:bg-red-100 p-3 rounded">
                                         <svg class="me-1.5 h-5 w-5" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                             viewBox="0 0 24 24">
