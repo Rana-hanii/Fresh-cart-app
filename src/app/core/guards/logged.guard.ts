@@ -15,5 +15,5 @@ export const loggedGuard: CanActivateFn = (route, state) => {
       return true;
     }
   }
-  return true;
+  return false;
 };

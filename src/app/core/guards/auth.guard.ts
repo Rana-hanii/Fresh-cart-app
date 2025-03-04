@@ -9,7 +9,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   const _PLATFORM_ID = inject(PLATFORM_ID);
 
   if (isPlatformBrowser(_PLATFORM_ID)) {
+
     const token:string = localStorage.getItem('token')!;
+    
     localStorage.setItem('userId',(jwtDecode(token) as {id:string}).id);
     console.log(localStorage.getItem('userId'));
     if (token) {
